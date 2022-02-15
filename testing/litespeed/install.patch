@@ -9,14 +9,19 @@
 -        else
 -            $DLCMD $LSWS_HOME/admin/fcgi-bin/admin_php http://www.litespeedtech.com/packages/lsphp5_bin/x86_64/lsphp5
 -        fi
+<<<<<<< HEAD
 +        # if [ "x$OSTYPE" != "x64" ] ; then
 +            # $DLCMD $LSWS_HOME/admin/fcgi-bin/admin_php http://www.litespeedtech.com/packages/lsphp5_bin/i386/lsphp5
 +        # else
+=======
++        ln -s /usr/bin/lsphp7 $LSWS_HOME/admin/fcgi-bin/admin_php
+>>>>>>> a86d6d6683f (Update install.patch)
          
 +		ln -s /usr/bin/lsphp7 $LSWS_HOME/admin/fcgi-bin/admin_php
 +        
          if [ $? = 0 ] ; then 
              HASADMINPHP=y
+<<<<<<< HEAD
              echo "admin_php downloaded."
 @@ -473,23 +473,23 @@
      fi
@@ -53,6 +58,8 @@
      echo "PIDFILE=$PID_FILE" > "$LSWS_HOME/bin/lsws_env"
      echo "GRACEFUL_PIDFILE=$DEFAULT_TMP_DIR/graceful.pid" >> "$LSWS_HOME/bin/lsws_env"
 
+=======
+>>>>>>> a86d6d6683f (Update install.patch)
 --- a/dist/functions.sh
 +++ b/dist/functions.sh
 @@ -399,7 +399,7 @@
