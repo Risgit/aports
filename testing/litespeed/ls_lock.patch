@@ -1,5 +1,6 @@
 --- a/dlbssl.sh
 +++ b/dlbssl.sh
+<<<<<<< HEAD
 @@ -29,7 +29,7 @@
      
  elif [ ! -f $BSSLDIR/build/ssl/libssl.a ] ; then
@@ -44,6 +45,26 @@
      mkdir build
      cd build
 @@ -75,6 +75,8 @@
+=======
+@@ -41,7 +41,7 @@
+     git checkout master
+     git pull
+ 
+-    git checkout 32e59d2d3264e4e104b355ef73663b8b79ac4093
++    git checkout cf8d3ad3cea51cf7184307d54f465da62b7d8408
+ 
+     rm -rf build
+ 
+@@ -54,6 +54,7 @@
+     patch -p1 < 1.patch
+     patch -p1 < 2.patch
+     patch -p1 < 3.patch
++sed -i -e "s/-Werror//" CMakeLists.txt
+ 
+     mkdir build
+     cd build
+@@ -75,6 +76,8 @@
+>>>>>>> 755c33f1d97 (Update ls_lock.patch)
      cp -r $BSSLDIR/include                   ssl/
  fi
  
@@ -52,8 +73,11 @@
      
  if [ ! -f ssl/libcrypto.a ] ; then
      echo -e "\033[38;5;148mError: failed to make boringSSL libraries.\033[39m"
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 755c33f1d97 (Update ls_lock.patch)
 --- a/include/lsr/ls_lock.h
 +++ b/include/lsr/ls_lock.h
 @@ -55,16 +55,9 @@
@@ -110,6 +134,26 @@
  static long getProcessStartTime(int pid)
  {
 
+<<<<<<< HEAD
+=======
+--- a/src/modules/CMakeLists.txt
++++ b/src/modules/CMakeLists.txt
+@@ -2,11 +2,11 @@
+ add_subdirectory(modgzip)
+ add_subdirectory(modreqparser)
+ add_subdirectory(cache)
+-add_subdirectory(pagespeed)
++#add_subdirectory(pagespeed)
+ #add_subdirectory(lua)
+ add_subdirectory(js)
+ add_subdirectory(modinspector)
+ add_subdirectory(uploadprogress)
+ #add_subdirectory(mod_lsphp)
+-add_subdirectory(modsecurity-ls)
++#add_subdirectory(modsecurity-ls)
+ 
+
+>>>>>>> 755c33f1d97 (Update ls_lock.patch)
 --- a/src/sslpp/sslcontext.cpp
 +++ b/src/sslpp/sslcontext.cpp
 @@ -33,9 +33,9 @@
