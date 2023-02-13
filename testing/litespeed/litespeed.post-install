@@ -1,0 +1,23 @@
+#! /bin/sh
+
+	#generate key for webadmin
+    COMMNAME=`hostname`
+    SSL_COUNTRY=CC
+    csr="webadmin.csr"
+    key="webadmin.key"
+    cert="webadmin.crt"
+	
+	rm /var/lib/litespeed/admin/misc/php.ini
+    
+    openssl req -subj "/CN=${COMMNAME}/O=webadmin/C=${SSL_COUNTRY}/extendedKeyUsage=1.3.6.1.5.5.7.3.1/subjectAltName=DNS.1=${MYIP}/" -new -newkey rsa:2048 -sha256 -days 1460 -nodes -x509 -keyout /etc/litespeed/admin/${key} -out /etc/litespeed/admin/${cert}
+	
+	echo "webadmin.key generated and added to conf"
+	
+	echo -e "\033[31m After installation start litespeed and add it to autoload: \e[0m";
+	echo -e "\033[31m rc-service litespeed start \e[0m";
+	echo -e "\033[31m rc-update add litespeed \e[0m";
+	
+	echo -e "\033[35m Adminpanel: your_ip:7080 \e[0m";
+	echo -e "\033[35m login:admin password:123456 \e[0m";
+	echo -e "\033[35m Be sure to change your password after logging in! \e[0m";
+	echo -e "\033[35m WebAdmin settings -> General -> Users \e[0m";

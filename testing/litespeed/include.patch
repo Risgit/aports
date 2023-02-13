@@ -13,7 +13,7 @@
 +++ b/src/main/lshttpdmain.cpp
 @@ -83,8 +83,8 @@
   */
- #define BUILDTIME  "built: Tue Feb  8 17:55:20 UTC 2022"
+ #define BUILDTIME  "built: Thu Nov 17 16:18:46 UTC 2022"
  
 -static const char s_pVersionFull[] = "LiteSpeed/" PACKAGE_VERSION
 -        " Open (" LS_MODULE_VERSION_INFO_ONELINE ") BUILD (" BUILDTIME ")";
@@ -31,6 +31,7 @@
  #include <sys/user.h>
  static long getProcessStartTime(int pid)
  {
+
 
 --- a/src/modules/lua/lsluadefs.h
 +++ b/src/modules/lua/lsluadefs.h
@@ -55,28 +56,17 @@
 -    as_ac_File=`$as_echo "ac_cv_file_$OPENLSWS_BROTLI/out/libbrotlidec-static.a" | $as_tr_sh`
 -{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for $OPENLSWS_BROTLI/out/libbrotlidec-static.a" >&5
 -$as_echo_n "checking for $OPENLSWS_BROTLI/out/libbrotlidec-static.a... " >&6; }
-<<<<<<< HEAD
 +    LIBBROTLI=" /usr/lib/libbrotlidec.so /usr/lib/libbrotlienc.so /usr/lib/libbrotlicommon.so "
 +    as_ac_File=`$as_echo "ac_cv_file_/usr/lib/libbrotlidec.so" | $as_tr_sh`
 +{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for /usr/lib/libbrotlidec.so" >&5
 +$as_echo_n "checking for /usr/lib/libbrotlidec.so... " >&6; }
-=======
-+    LIBBROTLI=" /usr/lib/libbrotlidec.a /usr/lib/libbrotlienc.a /usr/lib/libbrotlicommon.a "
-+    as_ac_File=`$as_echo "ac_cv_file_/usr/lib/libbrotlidec.a" | $as_tr_sh`
-+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for /usr/lib/libbrotlidec.a" >&5
-+$as_echo_n "checking for /usr/lib/libbrotlidec.a... " >&6; }
->>>>>>> 6623943d799 (Update include.patch)
  if eval \${$as_ac_File+:} false; then :
    $as_echo_n "(cached) " >&6
  else
    test "$cross_compiling" = yes &&
    as_fn_error $? "cannot check for file existence when cross compiling" "$LINENO" 5
 -if test -r "$OPENLSWS_BROTLI/out/libbrotlidec-static.a"; then
-<<<<<<< HEAD
 +if test -r "/usr/lib/libbrotlidec.so"; then
-=======
-+if test -r "/usr/lib/libbrotlidec.a"; then
->>>>>>> 6623943d799 (Update include.patch)
    eval "$as_ac_File=yes"
  else
    eval "$as_ac_File=no"
@@ -85,11 +75,7 @@
  
  cat >>confdefs.h <<_ACEOF
 -#define `$as_echo "HAVE_$OPENLSWS_BROTLI/out/libbrotlidec-static.a" | $as_tr_cpp` 1
-<<<<<<< HEAD
 +#define `$as_echo "HAVE_/usr/lib/libbrotlidec.so" | $as_tr_cpp` 1
-=======
-+#define `$as_echo "HAVE_/usr/lib/libbrotlidec.a" | $as_tr_cpp` 1
->>>>>>> 6623943d799 (Update include.patch)
  _ACEOF
  
  else
@@ -127,11 +113,7 @@
 -        CPPFLAGS="$CPPFLAGS -I$OPENLSWS_BROTLI/c/include "
 -        LIBBROTLI=" $OPENLSWS_BROTLI/out/libbrotlidec-static.a $OPENLSWS_BROTLI/out/libbrotlienc-static.a $OPENLSWS_BROTLI/out/libbrotlicommon-static.a "
 +        CPPFLAGS="$CPPFLAGS -I/usr/include "
-<<<<<<< HEAD
 +        LIBBROTLI=" /usr/lib/libbrotlidec.so /usr/lib/libbrotlienc.so /usr/lib/libbrotlicommon.so "
-=======
-+        LIBBROTLI=" /usr/lib/libbrotlidec.a /usr/lib/libbrotlienc.a /usr/lib/libbrotlicommon.a "
->>>>>>> 6623943d799 (Update include.patch)
  
  cat >>confdefs.h <<_ACEOF
  #define USE_BROTLI 1
